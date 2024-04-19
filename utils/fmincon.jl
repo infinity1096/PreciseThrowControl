@@ -204,17 +204,17 @@ function fmincon(cost::Function,
         verbose && println("---------diff type set to :finite (FiniteDiff.jl)---")
     end
     verbose && println("---------testing objective gradient-----------------")
-    if diff_type == :auto 
-        ForwardDiff.gradient(_x -> cost(params, _x), x0)
-    else
-        FiniteDiff.finite_difference_gradient(_x -> cost(params, _x), x0)
-    end     
+    # if diff_type == :auto 
+    #     ForwardDiff.gradient(_x -> cost(params, _x), x0)
+    # else
+    #     FiniteDiff.finite_difference_gradient(_x -> cost(params, _x), x0)
+    # end     
     verbose && println("---------testing constraint Jacobian----------------")
-    if diff_type == :auto 
-        ForwardDiff.jacobian(_x -> con(params, _x), x0)
-    else
-        FiniteDiff.finite_difference_jacobian(_x -> con(params, _x), x0)
-    end    
+    # if diff_type == :auto 
+    #     ForwardDiff.jacobian(_x -> con(params, _x), x0)
+    # else
+    #     FiniteDiff.finite_difference_jacobian(_x -> con(params, _x), x0)
+    # end    
     verbose && println("---------successfully compiled both derivatives-----")
     
     prob = ProblemMOI(n_primals, n_eq + n_ineq, params, cost, con, diff_type)
