@@ -1,3 +1,7 @@
 code_ref/**
 *.toml
 *.html
+
+gif/**
+gif_throw/**
+temp/**
