@@ -1,0 +1,10 @@
+code_ref/**
+*.toml
+*.html
+
+gif/**
+gif_throw/**
+temp/**
+
+gif copy/**
+gif_throw copy/**
